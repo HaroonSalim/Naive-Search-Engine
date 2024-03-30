@@ -7,11 +7,14 @@ Ahmad Luqman 22i-2018
 Why Python? 
 Because we are familiar with the language and have some practice and grip over it.
 
+# Starting Approach
 Based on the given instructions and dataset description, here's how we approach developing the Naïve Search Engine utilising MapReduce, focusing on the ARTICLE_ID and SECTION_TEXT columns and following the basic principles of the vector space model for information retrieval: 
 
-**Data Preprocessing:** Extract the necessary columns (ARTICLE_ID and SECTION_TEXT) from the provided dataset. Perform basic text cleaning operations such as removing punctuation, converting text to lowercase, and tokenisation. Optionally, perform additional preprocessing steps like stopword removal and stemming. 
+Data Preprocessing: Extract the necessary columns (ARTICLE_ID and SECTION_TEXT) from the provided dataset. Perform basic text cleaning operations such as removing punctuation, converting text to lowercase, and tokenisation. Optionally, perform additional preprocessing steps like stopword removal and stemming. 
 
-**Indexing Phase: **
+
+# Furthur work
+Indexing Phase:
 
 Mapper: Tokenize SECTION_TEXT and emit (word, 1) pairs. 
 Reducer: Aggregate word frequencies to generate a set of unique words and assign unique IDs to each word. 
@@ -19,8 +22,8 @@ Reducer: Aggregate word frequencies to generate a set of unique words and assign
  
 Mapper: Tokenize SECTION_TEXT and emit (word, ARTICLE_ID) pairs. 
 Reducer: Count the number of unique ARTICLE_IDs for each word to calculate IDF values. 
-Indexer Phase: 
 
+Indexer Phase: 
 Mapper: Tokenize SECTION_TEXT, calculate TF/IDF weights for each word, and emit (ARTICLE_ID, word_id: TF/IDF) pairs. 
 Reducer: Aggregate TF/IDF values for each ARTICLE_ID to generate the vector representation of each document. 
 
